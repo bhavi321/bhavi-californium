@@ -7,8 +7,8 @@ router.get('/test-me', function (req, res) {
 
 
 router.get('/test-you', function(req,res){
-    console.log('my name is',helperfn.greet)
-    helperfn.greet('')
-    res.send('This is my firsdt ever api!')
+    console.log('my name is bhavi')
+    helperfn.greet('a')
+    res.send('This is my first ever api!')
 });
 module.exports = router;
