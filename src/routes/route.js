@@ -73,5 +73,84 @@ router.get("/shoes", function(req, res){
     //req.query.brand
     res.send("dummy shoes response")
 })
+router.get("/movies",function(req,res){
+    let a=['Rang de basanti','The shining', 'Lord of the rings', 'Batman begins']
+    res.send(a)
+})
+
+
+//------ Q1 ------
+router.get("/GET/movies/",function(req,res){
+    let b=['Rang de basanti','The shining', 'Lord of the rings', 'Batman begins']
+    console.log(b)
+    res.send(b)
+})
+
+
+//------ Q2 ------
+router.get("/GET/movies/:indexNumber",function(req,res){
+    let b=['Rang de basanti','The shining', 'Lord of the rings', 'Batman begins']
+    console.log(b[req.params.indexNumber])
+    res.send(b[req.params.indexNumber])
+})
+
+
+//------ Q3 ------
+router.get("/GET/movie/:indexNumber",function(req,res){
+    let c=['Rang de basanti','The shining', 'Lord of the rings', 'Batman begins']
+    if(req.params.indexNumber>c.length-1 ){
+      console.log("Use a valid index.") 
+      res.send("Use a valid index.")
+    }
+    else
+    {
+        res.send("Successful")
+        console.log("Successful")
+    }
+      
+})
+
+
+//------ Q4 ------
+router.get("/GET/films",function(req,res){
+    let d=[ {
+        id: 1,
+        name: 'The Shining'
+       }, {
+        id: 2,
+        name: 'Incendies'
+       }, {
+        id: 3,
+        name: 'Rang de Basanti'
+       }, {
+        id: 4,
+        name: 'Finding Nemo'
+       }]
+       
+    console.log(d)
+    res.send(d)
+})
+
+
+//------ Q5 ------
+router.get("/GET/films/:filmId",function(req,res){
+    let e=[ {
+        id: 1,
+        name: 'The Shining'
+       }, {
+        id: 2,
+        name: 'Incendies'
+       }, {
+        id: 3,
+        name: 'Rang de Basanti'
+       }, {
+        id: 4,
+        name: 'Finding Nemo'
+       }]
+       
+      console.log(e[Number(req.params.filmId)-1])
+      res.send(e[Number(req.params.filmId)-1])
+       
+ })
 
 module.exports = router;
