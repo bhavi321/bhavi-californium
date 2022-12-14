@@ -101,6 +101,10 @@ let players =
        }
    ]
 router.post("/POST/players", function(req,res){
+    const {name,dob,city,gender,sports}=req.body
+    if(!name||!dob||!gender||!city||!sports)
+    return res.send("Fill all the fields")
+
    for(let i=0;i<players.length;i++){
     if(req.body.name==players[i].name){
     res.send("not allowed")
