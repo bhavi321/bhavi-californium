@@ -1,15 +1,18 @@
-const BookModel= require("../models/bookModel")
-
-const createBook= async function (req, res) {
-    let data= req.body
-    let savedData= await BookModel.create(data)
-    res.send({msg: savedData})
+const BookModel = require("../models/bookModel")
+let createBook= async function(req,res){
+    let data = req.body
+  let allBooksData =  await BookModel.create(data)
+  res.send({msg:allBooksData})
+}
+let bookList = async function(req,res){
+    let booksList= await BookModel.find().select({bookName:1,authorName:1,_id:0})
+    res.send({msg:booksList})
+}
+let getBooksInYear=function(req,res){
+    let data=req.params.
+    let getBooksOfYear= await BookModel.find().
+    res.send({msg:getBooksOfYear})
 }
 
-const getBooksData= async function (req, res) {
-    let allUsers= await BookModel.find()
-    res.send({msg: allUsers})
-}
-
-module.exports.createBook= createBook
-module.exports.getBooksData= getBooksData
+module.exports.createBook=createBook
+module.exports.bookList=bookList
