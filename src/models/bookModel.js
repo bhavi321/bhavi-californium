@@ -12,7 +12,10 @@ const bookSchema = new mongoose.Schema( {
         europeanPrice:String,
         japanPrice:String
     },
-    year:Number,
+    year:{
+     type:Number,
+     default:2021
+    },
     tags:[String],
     totalPages:Number,
     stockAvailable:Boolean
