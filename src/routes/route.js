@@ -9,11 +9,12 @@ router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 router.post("/createBook", BookController.createBook)
-router.post("/createBook1", BookController.createBook1)
+// router.post("/createBook1", BookController.createBook1)
 router.post("/createAuthor", AuthorController.createAuthor)
 router.post("/createPublisher", PublisherController.createPublisher)
 router.get("/getBooksWithAuthorDetails", BookController.getBooksWithAuthorDetails)
 router.put("/updateKey", BookController.updateKey)
+router.put("/updatePrice", BookController.updatePrice)
 
 // router.get("/getAuthorsData", authorController.getAuthorsData)
 
