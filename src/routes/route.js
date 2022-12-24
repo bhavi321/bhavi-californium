@@ -10,7 +10,7 @@ const IsFreeAppUser=require("../middlewares/isFreeAppUserMW")
 
 router.post("/createUser", IsFreeAppUser.isFreeAppUser,UserController.createUser )
 router.post("/createProduct", ProductController.createProduct )
-router.post("/createOrder", OrderController.createOrder )
+router.post("/createOrder",IsFreeAppUser.isFreeAppUser, OrderController.createOrder )
 
 
 module.exports = router;

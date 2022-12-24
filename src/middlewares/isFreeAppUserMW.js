@@ -1,9 +1,8 @@
 const isFreeAppUser= function(req,res,next){
-    const data=req.headers
-    console.log(data)
-    if(data.isfreeappuser)
+    if(req.headers.isfreeappuser)
     next()
-    return res.send({msg:"not present"})
+    else
+    return res.send({msg:"request is missing a mandatory header"})
     
 }
 module.exports.isFreeAppUser=isFreeAppUser
