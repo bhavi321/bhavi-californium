@@ -8,6 +8,7 @@ const authenticateUser=async function(req,res,next){
     if(!decodedToken)
     res.send({msg:"token is invalid"})
     
+    
     next()
 }
 module.exports.authenticateUser=authenticateUser

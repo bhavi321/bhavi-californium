@@ -29,14 +29,7 @@ res.send({msg:token})
 
 }
 let getUserDetails=async function(req,res){
-  let token=req.headers["x-auth-token"]
-  if(!token){
-    return res.send({msg:"token is required"})
-  }
-  let decodedToken=jwt.verify(token,"Function-up californium secret key")
-  if(!decodedToken)
-  res.send({msg:"token is invalid"})
-
+  
   
   let usrID=req.params.userId
   let getData=await UserModel.findById(usrID)
@@ -51,13 +44,9 @@ let getUserDetails=async function(req,res){
 }
 
 let updateUser=async function(req,res){
-  let token=req.headers["x-auth-token"]
-  if(!token){
-    return res.send({msg:"token is required"})
-  }
- 
 
-  
+ 
+ 
   let usrID=req.params.userId
   let data=req.body
   let getData=await UserModel.findOneAndUpdate({_id:usrID},data,{new:true})
