@@ -25,14 +25,15 @@ var token=jwt.sign({
   batch:"Californium",
   organisation:"Functionup"
 },"Function-up californium secret key")
+res.setHeader["x-auth-token",token]
 res.send({msg:token})
 
 }
 let getUserDetails=async function(req,res){
   
   
-  let usrID=req.params.userId
-  let getData=await UserModel.findById(usrID)
+  let userID=req.params.userId
+  let getData=await UserModel.findById(userID)
   if(!getData)
   return res.send({ status: false, msg: "No such user exists" })
 
@@ -47,9 +48,9 @@ let updateUser=async function(req,res){
 
  
  
-  let usrID=req.params.userId
+  let userID=req.params.userId
   let data=req.body
-  let getData=await UserModel.findOneAndUpdate({_id:usrID},data,{new:true})
+  let getData=await UserModel.findOneAndUpdate({_id:userID},data,{new:true})
   if(!getData)
   return res.send({ status: false, msg: "No such user exists" })
 
@@ -60,11 +61,9 @@ let updateUser=async function(req,res){
 }
 let deleteUser=async function(req,res){
 
-/////////
-  
-  let usrID=req.params.userId
+  let userID=req.params.userId
   let data=req.body
-  let getData=await UserModel.findOneAndUpdate({_id:usrID},{$set:{isDeleted:true}},{new:true})
+  let getData=await UserModel.findOneAndUpdate({_id:userID},{$set:{isDeleted:true}},{new:true})
   if(!getData)
   return res.send({ status: false, msg: "No such user exists" })
 
