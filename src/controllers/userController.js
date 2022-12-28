@@ -12,12 +12,11 @@ const createUser=async function(req,res){
 
 
 const loginUser=async function(req,res){
-  let data=req.body
   let email=req.body.emailId
   let pswrd=req.body.password
   let userDetails=await UserModel.findOne({emailId:email,password:pswrd})
 if(!userDetails)
-return res.send({msg:"email or password is incorrect"})
+return res.send({msg:"email or password is not present or incorrect"})
 
 var token=jwt.sign({
    userId:userDetails._id.toString(),
@@ -25,8 +24,7 @@ var token=jwt.sign({
   batch:"Californium",
   organisation:"Functionup"
 },"Function-up californium secret key")
-res.setHeader["x-auth-token",token]
-res.send({msg:token})
+res.send({msg:token}) 
 
 }
 let getUserDetails=async function(req,res){
