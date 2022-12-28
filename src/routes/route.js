@@ -17,7 +17,7 @@ router.delete("/users/:userId",AuthenticateUserMW.authenticateUser,UserControlle
 
 // router.put("/users/:userId", UserController.updateUser)
 
-module.exports = router;
+module.exports = router; 
 
 
 // router.get("/test-me", function (req, res) {
